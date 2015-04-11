@@ -1,6 +1,37 @@
-<%= form_for :emoji, :url=> {:action=>'create'}, :html=>{:multipart=>true} do |f| %>
-	<%= f.file_field :image_file %>
-	<%= f.text_field :name %>
-	<%= f.text_field :tag_list %>
-	<%= f.submit :submit %>
-<% end %>
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3">
+		<div class="panel panel-header">
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-body text-center">
+				<%= form_for :emoji, :url=> {:action=>'create'}, :html=>{:multipart=>true} do |f| %>
+					<div class="input-group">
+						<span class="input-group-btn">
+							<span class="btn btn-primary btn-file">
+								Browse
+								<%= f.file_field :image_file %>
+							</span>
+						</span>
+						<input class="form-control" readonly="" type="text">
+					</div>
+					<br/>
+					<div class="input-group">
+						<span class="input-group-addon">
+							Name
+						</span>
+						<%= f.text_field :name, :class => "form-control" %>
+					</div>
+					<br/>
+					<div class="input-group">
+						<span class="input-group-addon">
+							Tag List	
+						</span>
+						<%= f.text_field :tag_list, :class => "form-control" %>
+					</div>
+					<br/>
+						<%= f.submit :submit, :class => "btn btn-default center-block" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
