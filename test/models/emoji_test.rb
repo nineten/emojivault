@@ -2,11 +2,13 @@
 #
 # Table name: emojis
 #
-#  id         :integer          not null, primary key
-#  name       :string           not null
-#  img        :binary
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  filename     :string
+#  content_type :string
+#  img_binary   :binary
 #
 
 require 'test_helper'
