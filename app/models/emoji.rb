@@ -12,6 +12,7 @@
 #
 
 class Emoji < ActiveRecord::Base
+	acts_as_taggable 
 
 	def image_file=(input_data)
 		self.filename = input_data.original_filename
