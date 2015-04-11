@@ -25,7 +25,7 @@ class EmojisController < ApplicationController
 				render json: {
 					name: @emoji.name,
 					url: emoji_url(@emoji),
-					tags: @emoji.tag_list
+					tag_list: @emoji.tag_list
 				}
 			}
 		end
