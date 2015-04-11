@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 	root 'pages#index'
+
+	post 'search', to: 'pages#search'
 	
 	resources :emojis, :only => [:index, :show, :create, :destroy] do
 		collection do

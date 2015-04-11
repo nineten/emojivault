@@ -1,1 +1,34 @@
-The obligatory hello world
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3">
+		<div class="panel panel-header">
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-body text-center">
+				<%= form_for :search, :url=> {:action=>'search'} do |f| %>
+					<div class="input-group">
+						<%= f.text_field :tag_list, :class => "form-control text-center", :value => @search, :placeholder => "search for emoji tags eg: haha, laugh" %>
+						<span class="input-group-btn">
+							<%= button_tag :type => 'submit', :class => "btn btn-default" do %>
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+							<% end %>
+						</span>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<% if !@result.empty? %>
+			<div class="panel panel-default">
+				<div class="panel-body text-center">
+					<% @result.each do |emoji| %>
+						<div class="img-thumbnail">
+							<div>
+								<%= image_tag emoji_path(emoji) %>
+							</div>
+							<%= emoji.tag_list %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
