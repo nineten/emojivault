@@ -1,5 +1,9 @@
 class EmojisController < ApplicationController
 
+	def index
+		redirect_to root_path
+	end
+
 	def create
 		new_emoji = Emoji.new(emoji_params)
 		new_emoji.save!
