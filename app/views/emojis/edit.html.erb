@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3">
+		<div class="panel panel-header">
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-body text-center">
+				<div class="img-thumbnail">
+					<%= image_tag emoji_path(@emoji) %>
+				</div>
+				<%= form_for @emoji, :url=> {:action=>'update'} do |f| %>
+					<div class="input-group">
+						<span class="input-group-addon">
+							Tag List	
+						</span>
+						<%= f.text_field :tag_list, :class => "form-control" %>
+					</div>
+					<br/>
+						<%= f.submit :save, :class => "btn btn-default center-block" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

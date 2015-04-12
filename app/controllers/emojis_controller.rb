@@ -35,6 +35,17 @@ class EmojisController < ApplicationController
 		end
 	end
 
+	def edit
+		@emoji = Emoji.find(params[:id])
+	end
+
+	def update
+		@emoji = Emoji.find(params[:id])
+		@emoji.update_attributes(emoji_params)
+		
+		redirect_to edit_emoji_path(@emoji)
+	end
+	
 	private
 		def emoji_params
 			params.require(:emoji).permit(:name, :tag_list, :image_file => [])

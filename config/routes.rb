@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 	post 'search', to: 'pages#search'
 	
-	resources :emojis, :only => [:index, :show, :create, :destroy] do
+	resources :emojis, :only => [:index, :show, :edit, :update, :create, :destroy] do
 		collection do
 			get :upload
 		end
