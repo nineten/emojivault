@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
 	def index
+		@result = []
 	end
 
 	def search
