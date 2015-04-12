@@ -5,9 +5,13 @@ class EmojisController < ApplicationController
 	end
 
 	def create
-		new_emoji = Emoji.new(emoji_params)
-		new_emoji.save!
-		redirect_to emoji_path(new_emoji)
+		emoji_params[:image_file].each do |emoji_file|
+			filename = emoji_file.original_filename.gsub(/\.gif/, '')
+			new_emoji = Emoji.new({:image_file => emoji_file, :name => filename, :tag_list => emoji_params[:tag_list]})
+			new_emoji.save!
+		end
+
+		redirect_to root_path
 	end
 
 	def show
@@ -33,7 +37,7 @@ class EmojisController < ApplicationController
 
 	private
 		def emoji_params
-			params.require(:emoji).permit(:image_file, :name, :tag_list)
+			params.require(:emoji).permit(:name, :tag_list, :image_file => [])
 		end
 
 end
