@@ -24,7 +24,10 @@
 							<div>
 								<%= image_tag emoji_path(emoji) %>
 							</div>
-							<%= emoji.tag_list %>
+							<% emoji.tag_list.each do |tag| %>
+								<%= link_to tag, search_path({:search => {:tag_list => tag}}), :method => :post %>
+								<br/>
+							<% end %>
 						</div>
 					<% end %>
 				</div>
