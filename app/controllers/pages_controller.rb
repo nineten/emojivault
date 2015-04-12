@@ -5,14 +5,18 @@ class PagesController < ApplicationController
 	end
 
 	def search
-		@result = Emoji.tagged_with(search_params[:tag_list])
-		@search = search_params[:tag_list]
+		if !params[:search].nil?
+			@result = Emoji.tagged_with(search_params[:tag_list])
+			@search = search_params[:tag_list]
+		else
+			@result = []
+		end
 		render "index"
 	end
 
 	private
 		def search_params
-			params.require(:search).permit(:tag_list)
+			params.require(:search).permit(:tag_list) 
 		end
 
 end

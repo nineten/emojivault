@@ -1,4 +1,5 @@
 class EmojisController < ApplicationController
+	before_action :authenticate_user!, :except => [:show]
 
 	def index
 		redirect_to root_path

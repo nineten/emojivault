@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
 	root 'pages#index'
 
 	post 'search', to: 'pages#search'
+	get 'search', to: 'pages#search'
 	
 	resources :emojis, :only => [:index, :show, :edit, :update, :create, :destroy] do
 		collection do
