@@ -27,7 +27,9 @@
 										<%= image_tag emoji_path(emoji) %>
 									<% end %>
 								<% else %>
-									<%= image_tag emoji_path(emoji) %>
+									<%= link_to emoji_path(emoji) do %>
+										<%= image_tag emoji_path(emoji) %>
+									<% end %>
 								<% end %>
 							</div>
 							<% emoji.tag_list.each do |tag| %>
