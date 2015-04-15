@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
 	def search
 		if !params[:search].nil?
-			@result = Emoji.tagged_with(search_params[:tag_list])
+			@result = Emoji.tagged_with(split_into_array(search_params[:tag_list]))
 			@search = search_params[:tag_list]
 		else
 			@result = []
@@ -19,4 +19,7 @@ class PagesController < ApplicationController
 			params.require(:search).permit(:tag_list) 
 		end
 
+		def split_into_array(tag_list)
+			tag_list.split(/-|_|,|:|;| /)
+		end
 end

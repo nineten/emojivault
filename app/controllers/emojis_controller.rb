@@ -8,7 +8,11 @@ class EmojisController < ApplicationController
 	def create
 		emoji_params[:image_file].each do |emoji_file|
 			filename = emoji_file.original_filename.gsub(/\.gif/, '')
-			new_emoji = Emoji.new({:image_file => emoji_file, :name => filename, :tag_list => emoji_params[:tag_list]})
+			tag_list = split_into_array(emoji_params[:tag_list])
+			split_into_array(filename).each do |tag|
+				tag_list << tag if !tag_list.include?(tag)
+			end
+			new_emoji = Emoji.new({:image_file => emoji_file, :name => filename, :tag_list => tag_list})
 			new_emoji.save!
 		end
 
@@ -52,4 +56,7 @@ class EmojisController < ApplicationController
 			params.require(:emoji).permit(:name, :tag_list, :image_file => [])
 		end
 
+		def split_into_array(tag_list)
+			tag_list.split(/-|_|,|:|;| /)
+		end
 end
