@@ -18,4 +18,6 @@ $(document).ready( function() {
 	}
 
 	});
+
+	var clip = new ZeroClipboard($('.clip_emoji'));
 });

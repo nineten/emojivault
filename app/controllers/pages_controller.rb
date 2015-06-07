@@ -5,6 +5,8 @@ class PagesController < ApplicationController
 	end
 
 	def search
+		@is_mobile = is_mobile?
+
 		if !params[:search].nil?
 			@result = Emoji.tagged_with(split_into_array(search_params[:tag_list]))
 			@search = search_params[:tag_list]

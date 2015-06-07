@@ -4,6 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
+	def is_mobile?
+		session[:mobile_override] = params[:mobile] if params[:mobile]
+		mobile_device?
+	end
+
+	def mobile_device?
+		if session[:mobile_override]
+			session[:mobile_override] == "1"
+		else
+			(request.user_agent =~ /Mobile|webOS/)
+		end
+	end
+	helper_method :mobile_device?
+
 	protected
 
 	def configure_permitted_parameters

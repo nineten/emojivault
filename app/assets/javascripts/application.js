@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require emojis
+//= require zeroclipboard
 //= require_tree .

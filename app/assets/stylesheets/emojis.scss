@@ -22,3 +22,12 @@
 	cursor: inherit;
 	display: block;
 }
+
+.clip_emoji {
+	border: none;
+	background: none;
+}
+
+.clip_emoji:focus {
+	outline: none;
+}
