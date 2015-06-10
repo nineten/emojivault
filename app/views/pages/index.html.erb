@@ -28,12 +28,12 @@
 									<% end %>
 								<% else %>
 									<% if !@is_mobile %>
-										<%= button_tag :type => 'button', :data => {clipboard_text: "#{emoji_url(emoji)}.gif"}, :class =>  "clip_emoji" do %>
-											<%= image_tag emoji_path(emoji) %>
+										<%= button_tag :type => 'button', :data => {clipboard_text: "#{emoji_url(emoji)}.gif"}, :class =>  "clip-emoji" do %>
+											<%= image_tag emoji_path(emoji, format: :gif) %>
 										<% end %>
 									<% else %>
-										<%= link_to emoji_path(emoji) do %>
-											<%= image_tag emoji_path(emoji) %>
+										<%= button_tag :type => 'button', :data => {toggle: "popover", placement: "top", content: "<input type='text' value='#{emoji_url(emoji)}.gif' class='url-field' readonly />", html: "true"}, :title => "URL", :class => "clip-popover" do %>
+											<%= image_tag emoji_path(emoji, format: :gif) %>
 										<% end %>
 									<% end %>
 								<% end %>

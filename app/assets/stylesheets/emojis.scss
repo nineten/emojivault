@@ -23,11 +23,38 @@
 	display: block;
 }
 
-.clip_emoji {
+.clip-emoji {
 	border: none;
 	background: none;
 }
 
-.clip_emoji:focus {
+.clip-emoji:focus {
 	outline: none;
+}
+
+.clip-popover {
+	border: none;
+	background: none;
+}
+
+.clip-popover:focus {
+	outline: none;
+}
+
+div.popover{
+	width: 100%;
+	display:block;
+}
+
+div.popover-content{
+	width: 100%;
+	margin: 0;
+	padding: 5px;
+}
+
+input.url-field{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
