@@ -34,28 +34,3 @@ $(function () {
 	});
 })
 
-
-//$(function () {
-	//$('[data-toggle="tooltip"]').tooltip({
-		//trigger: "manual",
-		//template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'	
-	//});
-
-	//$('[data-toggle="tooltip"]').on({
-		//"click": function(){
-			//$(this).tooltip("toggle");
-		//}
-	//});
-//})
-
-//$(document).on('shown.bs.tooltip', function() {
-	//var tooltip = $('div .tooltip').children('.tooltip-inner');
-	//var link = tooltip.html();
-	//tooltip.remove();
-	//$('div .tooltip').append('<input value="'+link+'" class="tooltip-inner" /> ');
-	//$('div .tooltip').on('click', function() {
-		//$(this).children('.tooltip-inner').focus();
-	//});
-
-//});
-
